@@ -6,7 +6,7 @@
 Aplikasi Pengolah Citra dan Vision adalah aplikasi yang digunakan dalam pengolahan citra digital, seperti pemberian efek, Histogram, Aritmatika dan lain-lain.
 
 <p align="center">
-  <a href="https://github.com/MaulanaAkbarF/Aplikasi_Pengolah_Citra"><img title="Author" src="https://img.shields.io/badge/Author-Group A4 dan B5-purple.svg?style=for-the-badge&logo=github" /></a>
+  <a href="https://github.com/MaulanaAkbarF/Aplikasi_Pengolah_Citra"><img title="Author" src="https://img.shields.io/badge/Author-Maulana Akbar F., Rizky Jein, Sangga Dewa R.-purple.svg?style=for-the-badge&logo=github" /></a>
 </p>
 <p align="center">
   <a href="https://github.com/MaulanaAkbarF/Aplikasi_Pengolah_Citra"><img title="RATING" src="https://img.shields.io/badge/RATING SAAT INI-60%20%2F%20100-green?colorA=%23555555&colorB=%23FC5E00&style=for-the-badge"></a>
