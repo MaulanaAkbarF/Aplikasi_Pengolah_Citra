@@ -2734,192 +2734,204 @@ class Ui_MainWindow(object):
                 self.showEffectComplete()
 
     def apply5Bit(self):
-        input_image = self.pbInput.pixmap().toImage()
+            input_image = self.pbInput.pixmap().toImage()
+            width = input_image.width()
+            height = input_image.height()
 
-        width = input_image.width()
-        height = input_image.height()
+            # Buat gambar 5 bit (32 warna)
+            output_image = QImage(width, height, QImage.Format_RGB888)
 
-        output_image = QImage(width, height, QImage.Format_RGB888)
+            for y in range(height):
+                for x in range(width):
+                    # Dapatkan warna asli pada posisi piksel (x, y)
+                    pixel_color = input_image.pixelColor(x, y)
+                    r, g, b = pixel_color.red(), pixel_color.green(), pixel_color.blue()
 
-        levels = [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 255]
+                    # Kurangi setiap kanal warna ke dalam 5 bit (0-31)
+                    r = (r * 31) // 255
+                    g = (g * 31) // 255
+                    b = (b * 31) // 255
 
-        for y in range(height):
-            for x in range(width):
-                pixel_color = input_image.pixelColor(x, y)
-                gray_value = int(0.299 * pixel_color.red() + 0.587 * pixel_color.green() + 0.114 * pixel_color.blue())
-                quantized_value = min(levels, key=lambda x: abs(x - gray_value))
-                quantized_color = QColor(quantized_value, quantized_value, quantized_value)
-                output_image.setPixelColor(x, y, quantized_color)
+                    # Set warna pada gambar 5 bit
+                    bw_color = QColor(r * 255 // 31, g * 255 // 31, b * 255 // 31)
+                    output_image.setPixelColor(x, y, bw_color)
 
-        if (self.pixmap2 is None):
-                self.pixmap2 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek1 = 'Effect : Bit Depth - 5 bit '
-                self.labelOutput.setText(self.stringefek1)
-                self.showEffectComplete()
-        elif (self.pixmap3 is None):
-                self.pixmap3 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek2 = 'Effect : Bit Depth - 5 bit '
-                self.labelOutput.setText(self.stringefek2)
-                self.showEffectComplete()
-        elif (self.pixmap4 is None):
-                self.pixmap4 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek3 = 'Effect : Bit Depth - 5 bit '
-                self.labelOutput.setText(self.stringefek3)
-                self.showEffectComplete()
-        elif (self.pixmap5 is None or self.pixmap5 is not None):
-                self.pixmap5 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
-                self.pbOutput.setScaledContents(True)
-                self.showEffectComplete()
+            if (self.pixmap2 is None):
+                    self.pixmap2 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek1 = 'Effect : Bit Depth - 5 bit '
+                    self.labelOutput.setText(self.stringefek1)
+                    self.showEffectComplete()
+            elif (self.pixmap3 is None):
+                    self.pixmap3 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek2 = 'Effect : Bit Depth - 5 bit '
+                    self.labelOutput.setText(self.stringefek2)
+                    self.showEffectComplete()
+            elif (self.pixmap4 is None):
+                    self.pixmap4 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek3 = 'Effect : Bit Depth - 5 bit '
+                    self.labelOutput.setText(self.stringefek3)
+                    self.showEffectComplete()
+            elif (self.pixmap5 is None or self.pixmap5 is not None):
+                    self.pixmap5 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
+                    self.pbOutput.setScaledContents(True)
+                    self.showEffectComplete()
 
     def apply6Bit(self):
-        input_image = self.pbInput.pixmap().toImage()
+            input_image = self.pbInput.pixmap().toImage()
+            width = input_image.width()
+            height = input_image.height()
 
-        width = input_image.width()
-        height = input_image.height()
+            # Buat gambar 5 bit (32 warna)
+            output_image = QImage(width, height, QImage.Format_RGB888)
 
-        output_image = QImage(width, height, QImage.Format_RGB888)
+            for y in range(height):
+                for x in range(width):
+                    # Dapatkan warna asli pada posisi piksel (x, y)
+                    pixel_color = input_image.pixelColor(x, y)
+                    r, g, b = pixel_color.red(), pixel_color.green(), pixel_color.blue()
 
-        levels = [
-            0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60,
-            64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124,
-            128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176, 180, 184, 188,
-            192, 196, 200, 204, 208, 212, 216, 220, 224, 228, 232, 236, 240, 244, 248, 255
-        ]
+                    # Kurangi setiap kanal warna ke dalam 5 bit (0-31)
+                    r = (r * 63) // 255
+                    g = (g * 63) // 255
+                    b = (b * 63) // 255
 
-        for y in range(height):
-            for x in range(width):
-                pixel_color = input_image.pixelColor(x, y)
-                gray_value = int(0.299 * pixel_color.red() + 0.587 * pixel_color.green() + 0.114 * pixel_color.blue())
-                quantized_value = min(levels, key=lambda x: abs(x - gray_value))
-                quantized_color = QColor(quantized_value, quantized_value, quantized_value)
-                output_image.setPixelColor(x, y, quantized_color)
+                    # Set warna pada gambar 5 bit
+                    bw_color = QColor(r * 255 // 63, g * 255 // 63, b * 255 // 63)
+                    output_image.setPixelColor(x, y, bw_color)
 
-        if (self.pixmap2 is None):
-                self.pixmap2 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek1 = 'Effect : Bit Depth - 6 bit '
-                self.labelOutput.setText(self.stringefek1)
-                self.showEffectComplete()
-        elif (self.pixmap3 is None):
-                self.pixmap3 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek2 = 'Effect : Bit Depth - 6 bit '
-                self.labelOutput.setText(self.stringefek2)
-                self.showEffectComplete()
-        elif (self.pixmap4 is None):
-                self.pixmap4 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek3 = 'Effect : Bit Depth - 6 bit '
-                self.labelOutput.setText(self.stringefek3)
-                self.showEffectComplete()
-        elif (self.pixmap5 is None or self.pixmap5 is not None):
-                self.pixmap5 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
-                self.pbOutput.setScaledContents(True)
-                self.showEffectComplete()
+            if (self.pixmap2 is None):
+                    self.pixmap2 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek1 = 'Effect : Bit Depth - 6 bit '
+                    self.labelOutput.setText(self.stringefek1)
+                    self.showEffectComplete()
+            elif (self.pixmap3 is None):
+                    self.pixmap3 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek2 = 'Effect : Bit Depth - 6 bit '
+                    self.labelOutput.setText(self.stringefek2)
+                    self.showEffectComplete()
+            elif (self.pixmap4 is None):
+                    self.pixmap4 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek3 = 'Effect : Bit Depth - 6 bit '
+                    self.labelOutput.setText(self.stringefek3)
+                    self.showEffectComplete()
+            elif (self.pixmap5 is None or self.pixmap5 is not None):
+                    self.pixmap5 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
+                    self.pbOutput.setScaledContents(True)
+                    self.showEffectComplete()
 
     def apply7Bit(self):
-        input_image = self.pbInput.pixmap().toImage()
+            input_image = self.pbInput.pixmap().toImage()
+            width = input_image.width()
+            height = input_image.height()
 
-        width = input_image.width()
-        height = input_image.height()
+            # Buat gambar 5 bit (32 warna)
+            output_image = QImage(width, height, QImage.Format_RGB888)
 
-        output_image = QImage(width, height, QImage.Format_RGB888)
+            for y in range(height):
+                for x in range(width):
+                    # Dapatkan warna asli pada posisi piksel (x, y)
+                    pixel_color = input_image.pixelColor(x, y)
+                    r, g, b = pixel_color.red(), pixel_color.green(), pixel_color.blue()
 
-        levels = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30,
-                  32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62,
-                  64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94,
-                  96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 255]
+                    # Kurangi setiap kanal warna ke dalam 5 bit (0-31)
+                    r = (r * 127) // 255
+                    g = (g * 127) // 255
+                    b = (b * 127) // 255
 
-        for y in range(height):
-            for x in range(width):
-                pixel_color = input_image.pixelColor(x, y)
-                gray_value = int(0.299 * pixel_color.red() + 0.587 * pixel_color.green() + 0.114 * pixel_color.blue())
-                quantized_value = min(levels, key=lambda x: abs(x - gray_value))
-                quantized_color = QColor(quantized_value, quantized_value, quantized_value)
-                output_image.setPixelColor(x, y, quantized_color)
+                    # Set warna pada gambar 5 bit
+                    bw_color = QColor(r * 255 // 127, g * 255 // 127, b * 255 // 127)
+                    output_image.setPixelColor(x, y, bw_color)
 
-        if (self.pixmap2 is None):
-                self.pixmap2 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek1 = 'Effect : Bit Depth - 7 bit '
-                self.labelOutput.setText(self.stringefek1)
-                self.showEffectComplete()
-        elif (self.pixmap3 is None):
-                self.pixmap3 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek2 = 'Effect : Bit Depth - 7 bit '
-                self.labelOutput.setText(self.stringefek2)
-                self.showEffectComplete()
-        elif (self.pixmap4 is None):
-                self.pixmap4 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek3 = 'Effect : Bit Depth - 7 bit '
-                self.labelOutput.setText(self.stringefek3)
-                self.showEffectComplete()
-        elif (self.pixmap5 is None or self.pixmap5 is not None):
-                self.pixmap5 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
-                self.pbOutput.setScaledContents(True)
-                self.showEffectComplete()
+            if (self.pixmap2 is None):
+                    self.pixmap2 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek1 = 'Effect : Bit Depth - 7 bit '
+                    self.labelOutput.setText(self.stringefek1)
+                    self.showEffectComplete()
+            elif (self.pixmap3 is None):
+                    self.pixmap3 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek2 = 'Effect : Bit Depth - 7 bit '
+                    self.labelOutput.setText(self.stringefek2)
+                    self.showEffectComplete()
+            elif (self.pixmap4 is None):
+                    self.pixmap4 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek3 = 'Effect : Bit Depth - 7 bit '
+                    self.labelOutput.setText(self.stringefek3)
+                    self.showEffectComplete()
+            elif (self.pixmap5 is None or self.pixmap5 is not None):
+                    self.pixmap5 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
+                    self.pbOutput.setScaledContents(True)
+                    self.showEffectComplete()
 
     def apply8Bit(self):
-        input_image = self.pbInput.pixmap().toImage()
+            input_image = self.pbInput.pixmap().toImage()
+            width = input_image.width()
+            height = input_image.height()
 
-        width = input_image.width()
-        height = input_image.height()
+            # Buat gambar 5 bit (32 warna)
+            output_image = QImage(width, height, QImage.Format_RGB888)
 
-        output_image = QImage(width, height, QImage.Format_RGB888)
+            for y in range(height):
+                for x in range(width):
+                    # Dapatkan warna asli pada posisi piksel (x, y)
+                    pixel_color = input_image.pixelColor(x, y)
+                    r, g, b = pixel_color.red(), pixel_color.green(), pixel_color.blue()
 
-        levels = list(range(256))
+                    # Kurangi setiap kanal warna ke dalam 5 bit (0-31)
+                    r = (r * 255) // 255
+                    g = (g * 255) // 255
+                    b = (b * 255) // 255
 
-        for y in range(height):
-            for x in range(width):
-                pixel_color = input_image.pixelColor(x, y)
-                gray_value = int(0.299 * pixel_color.red() + 0.587 * pixel_color.green() + 0.114 * pixel_color.blue())
-                quantized_value = min(levels, key=lambda x: abs(x - gray_value))
-                quantized_color = QColor(quantized_value, quantized_value, quantized_value)
-                output_image.setPixelColor(x, y, quantized_color)
+                    # Set warna pada gambar 5 bit
+                    bw_color = QColor(r * 255 // 255, g * 255 // 255, b * 255 // 255)
+                    output_image.setPixelColor(x, y, bw_color)
 
-        if (self.pixmap2 is None):
-                self.pixmap2 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek1 = 'Effect : Bit Depth - 8 bit '
-                self.labelOutput.setText(self.stringefek1)
-                self.showEffectComplete()
-        elif (self.pixmap3 is None):
-                self.pixmap3 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek2 = 'Effect : Bit Depth - 8 bit '
-                self.labelOutput.setText(self.stringefek2)
-                self.showEffectComplete()
-        elif (self.pixmap4 is None):
-                self.pixmap4 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
-                self.pbOutput.setScaledContents(True)
-                self.stringefek3 = 'Effect : Bit Depth - 8 bit '
-                self.labelOutput.setText(self.stringefek3)
-                self.showEffectComplete()
-        elif (self.pixmap5 is None or self.pixmap5 is not None):
-                self.pixmap5 = output_image
-                self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
-                self.pbOutput.setScaledContents(True)
-                self.showEffectComplete()
+            if (self.pixmap2 is None):
+                    self.pixmap2 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap2))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek1 = 'Effect : Bit Depth - 8 bit '
+                    self.labelOutput.setText(self.stringefek1)
+                    self.showEffectComplete()
+            elif (self.pixmap3 is None):
+                    self.pixmap3 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap3))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek2 = 'Effect : Bit Depth - 8 bit '
+                    self.labelOutput.setText(self.stringefek2)
+                    self.showEffectComplete()
+            elif (self.pixmap4 is None):
+                    self.pixmap4 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap4))
+                    self.pbOutput.setScaledContents(True)
+                    self.stringefek3 = 'Effect : Bit Depth - 8 bit '
+                    self.labelOutput.setText(self.stringefek3)
+                    self.showEffectComplete()
+            elif (self.pixmap5 is None or self.pixmap5 is not None):
+                    self.pixmap5 = output_image
+                    self.pbOutput.setPixmap(QtGui.QPixmap.fromImage(self.pixmap5))
+                    self.pbOutput.setScaledContents(True)
+                    self.showEffectComplete()
 
         # ----------------------------------------------------------------------------------------------------------
         # FUNGSI MENU IMAGE PROCESSING -----------------------------------------------------------------------------------------
