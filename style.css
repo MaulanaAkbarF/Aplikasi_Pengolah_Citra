@@ -1,0 +1,17 @@
+#typerwriter-text {
+  overflow: hidden;
+  border-right: 1px solid #000;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  animation: typing 3s steps(28) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
