@@ -1,3 +1,11 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <script src="script.js"></script>
+</body>
+
 <div align="center">
   <img src="https://github.com/MaulanaAkbarF/gambar/blob/main/Qt-514-Released.jpg" alt="E-Damkar" width="1920" />
 
