@@ -1,10 +1,9 @@
-#typerwriter-text {
+.typerwriter-text {
   overflow: hidden;
-  border-right: 1px solid #000;
   white-space: nowrap;
+  border-right: 1px solid #000;
   margin: 0 auto;
   letter-spacing: 2px;
-  animation: typing 3s steps(28) forwards;
 }
 
 @keyframes typing {
@@ -14,4 +13,10 @@
   to {
     width: 100%;
   }
+}
+
+/* Gaya tambahan (opsional) */
+.additional-style {
+  color: blue;
+  font-size: 24px;
 }
