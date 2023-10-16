@@ -1,18 +1,9 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-  <script src="script.js"></script>
-</body>
-
 <div align="center">
-  <img src="https://github.com/MaulanaAkbarF/gambar/blob/main/Qt-514-Released.jpg" alt="E-Damkar" width="1920" />
+<img src="https://github.com/MaulanaAkbarF/gambar/blob/main/BannerGithub%204K%20E-Damkar.png" alt="E-Damkar" width="1920" />
 
-  <h1 id="typerwriter-text" class="typerwriter-text"></h1>
+# Aplikasi Pengolah Citra dan Vision
 
-  <p class="additional-style">Aplikasi Pengolah Citra dan Vision adalah aplikasi yang digunakan dalam pengolahan citra digital, seperti pemberian efek, Histogram, Aritmatika dan lain-lain.</p>
-</div>
+Aplikasi Pengolah Citra dan Vision adalah aplikasi yang digunakan dalam pengolahan citra digital, seperti pemberian efek, Histogram, Aritmatika dan lain-lain.
 
 <p align="center">
   <a href="https://github.com/MaulanaAkbarF/Aplikasi_Pengolah_Citra"><img title="Author" src="https://img.shields.io/badge/Author-Maulana Akbar F., Rizky Jein, Sangga Dewa R.-purple.svg?style=for-the-badge&logo=github" /></a>
