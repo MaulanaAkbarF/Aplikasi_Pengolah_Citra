@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/MaulanaAkbarF/gambar/blob/main/BannerGithub%204K%20E-Damkar.png" alt="E-Damkar" width="1920" />
+<img src="https://github.com/MaulanaAkbarF/gambar/blob/main/Qt-514-Released.jpg" alt="Aplikasi Pengolah Citra dengan Qt 5.14" width="1920" />
 
 # Aplikasi Pengolah Citra dan Vision
 
